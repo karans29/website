@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+	<style>
+		html, body, .container {
+			height: 100%;
+			width: 100%;
+			margin: 0px;
+			font-family: 'Open Sans', normal;
+		}
+		.page-title {
+			text-align: center;
+			padding-top: 5%;
+		}
+		.translate-container {
+			padding: 10px;
+		}
+		textarea {
+			border: 1px solid black;
+			box-shadow: 0px 0px 10px grey;
+			resize: none;
+			font-size: 15px;
+			width: 100%;
+		}
+		.center-container {
+			text-align: center;
+		}
+		.translate-button {
+			background-color: beige;
+			color: black;
+			padding: 15px 32px;
+			text-align: center;
+			font-size: 16px;
+		}
+
+
+		
+	</style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>OwO</title>
+</head>
+<body>
+	<div class="container">
+		<h1 class="page-title"> OwO Generator</h1>
+		<div style="padding: 10px;">
+			Hewwo!! ( ^ ᴗ ^ )<br/>
+			Pwease use this wesponsibwy<br/>
+			Enter your text below and click on "OwO" to generate OwO Script
+		</div>
+		<div class="translate-container">
+			<div>
+				<textarea id="input" rows="8"></textarea>
+			</div>
+		</div>
+
+		<div class="center-container">
+			<button class="translate-button" onclick="owoGenerate()">OwO</button>
+		</div>
+
+		<div class="translate-container">
+			<div>
+				<textarea id="output" rows="8" readonly></textarea>
+			</div>
+		</div>
+
+		<div class="center-container" style="bottom: 10px;">
+			Based on the OWO Chrome extension by leafysweetsgarden
+		</div>
+
+	</div>
+</body>
+<script>
+
+	document.getElementById("input").value = "You have made a massive mistake. Doing this for me would have made you a symbol in the world of intellect and literature. It is so typical for someone like you to use abbreviated words. I was prepared to open your world to my knowledge and share my stories, my art, with you. You will forever regret the choice you just made, so I will offer to let you do this project again. If you do not, you will have to face the consequences!!"
+
+	console.log(`%c ________________________________________
+< mooooooooooooooooooooooooooooooooooooo >
+ ----------------------------------------
+        \\   ^__^
+         \\  (oo)\\_______
+            (__)\\       )\\/\\
+                ||----w |
+				||     ||`, "font-family:monospace");
+				
+	function owoGenerate() {
+		var faces=["(・`ω´・)",";;w;;","owo","UwU",">w<","^w^", "( °ω° )", "＼（＾０＾）ノ"];
+
+		var input = document.getElementById("input").value.trim();
+		var output = document.getElementById("output");
+
+		console.log(input)
+
+		input = input.replace(/(?:R|L)/g, "W");
+		input = input.replace(/(?:r|l)/g, "w");
+		input = input.replace(/n([aeiou])/g, 'ny$1');
+		input = input.replace(/N([aeiou])/g, 'Ny$1');
+		input = input.replace(/N([AEIOU])/g, 'Ny$1');
+		input = input.replace(/ove/g, "uv");
+		input = input.replace(/\!+/g, " "+ faces[Math.floor(Math.random()*faces.length)]+ " ");
+
+		output.value = input;
+	}
+</script>
+</html>

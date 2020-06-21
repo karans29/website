@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<style>
+		html,
+		body,
+		.container {
+			height: 100%;
+			width: 100%;
+		}
+
+		.container {
+			font-family: Helvetica;
+			font-size: 50px;
+		}
+	</style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Is It Tuesday?</title>
+</head>
+
+<body onload="isItTuesday()">
+	<center class="container">
+		<div>Is It Tuesday?</div>
+		<br/>
+		<div id="ans">No.</div>
+	</center>
+	<script>
+		function isItTuesday() {
+
+			var d = new Date();
+			var n = d.getDay()
+			var yn = ""
+
+			if (n == 2) {
+				yn = "Yes.";
+			}
+			else {
+				yn = "No.";
+			}
+
+			document.getElementById("ans").innerHTML = yn;
+		}
+
+
+	</script>
+</body>
+
+</html>

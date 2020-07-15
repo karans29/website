@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Open+Sans"
+		/>
+		<style>
+			html,
+			body,
+			.container {
+				height: 100%;
+				width: 100%;
+				margin: 0px;
+				font-family: "Open Sans", normal;
+			}
+			.page-title {
+				text-align: center;
+			}
+			.emojify-container {
+				padding: 10px;
+			}
+			textarea {
+				border: 1px solid black;
+				box-shadow: 0px 0px 10px grey;
+				resize: none;
+				font-size: 15px;
+				width: 100%;
+			}
+			.center-container {
+				text-align: center;
+			}
+			.emojify-button {
+				background-color: beige;
+				color: black;
+				padding: 15px 32px;
+				text-align: center;
+				font-size: 16px;
+			}
+		</style>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Emojify</title>
+	</head>
+	<body>
+		<script src="js/emojify.js"></script>
+		<script src="js/emoji-mappings.js"></script>
+		<script>
+			function writeEmojipasta() {
+				var text = document.getElementById("input").value;
+				document.getElementById("output").innerHTML = generateEmojipasta(text);
+			}
+		</script>
+		<div class="container">
+			<h1 class="page-title">
+				<div id="emoji-header"></div>
+				Emojify Your Text
+			</h1>
+			<div style="padding: 10px;">
+				Hello!<br />
+				Please use 👏 this ☝👈 responsibly!<br />
+				Enter 💦 your 👉👨 text 🔠📲 below ⬇ and 👏🏼 click 🖱🖱 on
+				"<strong>Emojify</strong>" to 😋 emojify your 😋 text! 💘
+			</div>
+			<div class="emojify-container">
+				<div>
+					<textarea id="input" rows="8"></textarea>
+				</div>
+			</div>
+
+			<div class="center-container">
+				<button class="emojify-button" onclick="writeEmojipasta()">
+					Emojify <span id="emoji-button"></span>
+				</button>
+			</div>
+
+			<div class="emojify-container">
+				<div>
+					<textarea id="output" rows="8" readonly></textarea>
+				</div>
+			</div>
+		</div>
+		<script>
+			document.getElementById("input").value =
+				"You have made a massive mistake. Doing this for me would have made you a symbol in the world of intellect and literature. It is so typical for someone like you to use abbreviated words. I was prepared to open your world to my knowledge and share my stories, my art, with you. You will forever regret the choice you just made, so I will offer to let you do this project again. If you do not, you will have to face the consequences!!";
+
+			console.log(
+				`%c ________________________________________
+< mooooooooooooooooooooooooooooooooooooo >
+----------------------------------------
+	\\   ^__^
+	 \\  (oo)\\_______
+		(__)\\       )\\/\\
+			||----w |
+			||     ||`,
+				"font-family:monospace"
+			);
+
+			document.getElementById("emoji-header").innerHTML = getRandomEmoji();
+
+			document.getElementById("emoji-button").innerHTML = getRandomEmoji();
+		</script>
+	</body>
+</html>

@@ -33,6 +33,43 @@
 			text-align: center;
 			font-size: 16px;
 		}
+		.tooltip {
+				position: relative;
+				display: inline-block;
+			}
+
+			.tooltip .tooltiptext {
+				visibility: hidden;
+				width: 140px;
+				background-color: #555;
+				color: #fff;
+				text-align: center;
+				border-radius: 6px;
+				padding: 5px;
+				position: absolute;
+				z-index: 1;
+				bottom: 150%;
+				left: 50%;
+				margin-left: -75px;
+				opacity: 0;
+				transition: opacity 0.3s;
+			}
+
+			.tooltip .tooltiptext::after {
+				content: "";
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				margin-left: -5px;
+				border-width: 5px;
+				border-style: solid;
+				border-color: #555 transparent transparent transparent;
+			}
+
+			.tooltip:hover .tooltiptext {
+				visibility: visible;
+				opacity: 1;
+			}
 
 
 		
@@ -63,7 +100,18 @@
 			<div>
 				<textarea id="output" rows="8" readonly></textarea>
 			</div>
+			<div class="tooltip">
+				<button
+					class="translate-button"
+					onclick="copyTranslateText()"
+					onmouseout="outFunc()"
+				>
+					<span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+					Copy to Clipboard
+				</button>
+			</div>
 		</div>
+		
 
 		<div class="center-container" style="bottom: 10px;">
 			Based on the OWO Chrome extension by leafysweetsgarden
@@ -102,5 +150,22 @@
 
 		output.value = input;
 	}
+
+	function copyTranslateText() {
+				var emojiText = document.getElementById("output");
+
+				emojiText.select();
+				emojiText.setSelectionRange(0, 99999);
+
+				document.execCommand("copy");
+
+				var tooltip = document.getElementById("myTooltip");
+				tooltip.innerHTML = "Text Copied";
+			}
+
+			function outFunc() {
+				var tooltip = document.getElementById("myTooltip");
+				tooltip.innerHTML = "Copy to clipboard";
+			}
 </script>
 </html>

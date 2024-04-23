@@ -10,6 +10,6 @@
   "license": "ISC",
   "homepage": "https://karans29.github.io/website",
   "dependencies": {
-    "gh-pages": "^2.2.0"
+    "gh-pages": "^5.0.0"
   }
 }
